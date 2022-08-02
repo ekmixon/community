@@ -21,11 +21,7 @@ yamlfile = args.input
 jsonfile = args.output
 r_list = []
 
-if args.token:
-    g = Github(args.token)
-else:
-    g = Github()
-
+g = Github(args.token) if args.token else Github()
 with open(yamlfile, 'r') as f:
     repo_list = yaml.load(f, Loader=yaml.SafeLoader)
 
